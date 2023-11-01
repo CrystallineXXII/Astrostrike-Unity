@@ -21,7 +21,7 @@ public class PlayerShipMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime);
-        transform.Translate(Vector3.up * verticalInput * speed * Time.deltaTime);
+        transform.Rotate(new Vector3(0,0,-1) * Time.deltaTime * rotationSpeed * horizontalInput);
+        transform.Translate(Vector3.up * Time.deltaTime * speed * (1f + verticalInput));
     }
 }
